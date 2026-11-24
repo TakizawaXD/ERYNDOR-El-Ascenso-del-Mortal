@@ -1,0 +1,10 @@
+s = open('nature.py', encoding='utf8').read()
+a = s.index('def pine('); b = s.index('def dead_tree(')
+seg = s[a:b]
+seg = seg.replace('C(28, 46)', 'C(36, 66)').replace('c.ellipse(14, 42, 9, 2.6, SHADOW)', 'c.ellipse(18, 62, 12, 3, SHADOW)')
+seg = seg.replace('trunk(c, 14, 34, 43, 4, roots=False)', 'trunk(c, 18, 50, 63, 6, roots=False)')
+seg = seg.replace('tiers = [(6, 8, 6), (13, 11, 8), (21, 13, 9), (29, 13, 7)]', 'tiers = [(7, 10, 9), (17, 14, 11), (29, 17, 12), (41, 17, 10)]')
+seg = seg.replace('14 - half', '18 - half').replace('14 + half', '18 + half')
+seg = seg.replace("t.px(14, 4, 'sn' if snow else 'g_lt'); t.px(14, 5, 'sn' if snow else 'g_lt')", "t.px(18, 5, 'sn' if snow else 'g_lt'); t.px(18, 6, 'sn' if snow else 'g_lt')")
+open('nature.py', 'w', encoding='utf8').write(s[:a] + seg + s[b:])
+print('pine ok')

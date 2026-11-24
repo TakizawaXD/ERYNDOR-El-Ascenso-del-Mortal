@@ -1,0 +1,1418 @@
+{
+ "character": "Minotaur",
+ "cell": 64,
+ "pivot": [
+  0.5,
+  0.1875
+ ],
+ "ppu": 16,
+ "weapon": "axe",
+ "reach_px": 20.0,
+ "body_px": 22,
+ "clips": [
+  {
+   "name": "Idle",
+   "dir": "Right",
+   "file": "Idle/Minotaur_Idle_Right.png",
+   "frames": 2,
+   "seq": [
+    0,
+    1,
+    1,
+    0
+   ],
+   "fps": 5,
+   "loop": true,
+   "size": [
+    128,
+    64
+   ],
+   "events": []
+  },
+  {
+   "name": "Idle",
+   "dir": "Left",
+   "file": "Idle/Minotaur_Idle_Left.png",
+   "frames": 2,
+   "seq": [
+    0,
+    1,
+    1,
+    0
+   ],
+   "fps": 5,
+   "loop": true,
+   "size": [
+    128,
+    64
+   ],
+   "events": []
+  },
+  {
+   "name": "Idle",
+   "dir": "Down",
+   "file": "Idle/Minotaur_Idle_Down.png",
+   "frames": 2,
+   "seq": [
+    0,
+    1,
+    1,
+    0
+   ],
+   "fps": 5,
+   "loop": true,
+   "size": [
+    128,
+    64
+   ],
+   "events": []
+  },
+  {
+   "name": "Idle",
+   "dir": "Up",
+   "file": "Idle/Minotaur_Idle_Up.png",
+   "frames": 2,
+   "seq": [
+    0,
+    1,
+    1,
+    0
+   ],
+   "fps": 5,
+   "loop": true,
+   "size": [
+    128,
+    64
+   ],
+   "events": []
+  },
+  {
+   "name": "Walk",
+   "dir": "Right",
+   "file": "Walk/Minotaur_Walk_Right.png",
+   "frames": 6,
+   "seq": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "fps": 10,
+   "loop": true,
+   "size": [
+    384,
+    64
+   ],
+   "events": []
+  },
+  {
+   "name": "Walk",
+   "dir": "Left",
+   "file": "Walk/Minotaur_Walk_Left.png",
+   "frames": 6,
+   "seq": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "fps": 10,
+   "loop": true,
+   "size": [
+    384,
+    64
+   ],
+   "events": []
+  },
+  {
+   "name": "Walk",
+   "dir": "Down",
+   "file": "Walk/Minotaur_Walk_Down.png",
+   "frames": 6,
+   "seq": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "fps": 10,
+   "loop": true,
+   "size": [
+    384,
+    64
+   ],
+   "events": []
+  },
+  {
+   "name": "Walk",
+   "dir": "Up",
+   "file": "Walk/Minotaur_Walk_Up.png",
+   "frames": 6,
+   "seq": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "fps": 10,
+   "loop": true,
+   "size": [
+    384,
+    64
+   ],
+   "events": []
+  },
+  {
+   "name": "Run",
+   "dir": "Right",
+   "file": "Walk/Minotaur_Run_Right.png",
+   "frames": 4,
+   "seq": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "fps": 14,
+   "loop": true,
+   "size": [
+    256,
+    64
+   ],
+   "events": []
+  },
+  {
+   "name": "Run",
+   "dir": "Left",
+   "file": "Walk/Minotaur_Run_Left.png",
+   "frames": 4,
+   "seq": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "fps": 14,
+   "loop": true,
+   "size": [
+    256,
+    64
+   ],
+   "events": []
+  },
+  {
+   "name": "Run",
+   "dir": "Down",
+   "file": "Walk/Minotaur_Run_Down.png",
+   "frames": 4,
+   "seq": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "fps": 14,
+   "loop": true,
+   "size": [
+    256,
+    64
+   ],
+   "events": []
+  },
+  {
+   "name": "Run",
+   "dir": "Up",
+   "file": "Walk/Minotaur_Run_Up.png",
+   "frames": 4,
+   "seq": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "fps": 14,
+   "loop": true,
+   "size": [
+    256,
+    64
+   ],
+   "events": []
+  },
+  {
+   "name": "PrepareAttack",
+   "dir": "Right",
+   "file": "Attack/Minotaur_PrepareAttack_Right.png",
+   "frames": 3,
+   "seq": [
+    0,
+    1,
+    2
+   ],
+   "fps": 10,
+   "loop": false,
+   "size": [
+    192,
+    64
+   ],
+   "events": [
+    {
+     "frame": 0,
+     "fn": "AnimEvent",
+     "arg": "Telegraph"
+    }
+   ]
+  },
+  {
+   "name": "PrepareAttack",
+   "dir": "Left",
+   "file": "Attack/Minotaur_PrepareAttack_Left.png",
+   "frames": 3,
+   "seq": [
+    0,
+    1,
+    2
+   ],
+   "fps": 10,
+   "loop": false,
+   "size": [
+    192,
+    64
+   ],
+   "events": [
+    {
+     "frame": 0,
+     "fn": "AnimEvent",
+     "arg": "Telegraph"
+    }
+   ]
+  },
+  {
+   "name": "PrepareAttack",
+   "dir": "Down",
+   "file": "Attack/Minotaur_PrepareAttack_Down.png",
+   "frames": 3,
+   "seq": [
+    0,
+    1,
+    2
+   ],
+   "fps": 10,
+   "loop": false,
+   "size": [
+    192,
+    64
+   ],
+   "events": [
+    {
+     "frame": 0,
+     "fn": "AnimEvent",
+     "arg": "Telegraph"
+    }
+   ]
+  },
+  {
+   "name": "PrepareAttack",
+   "dir": "Up",
+   "file": "Attack/Minotaur_PrepareAttack_Up.png",
+   "frames": 3,
+   "seq": [
+    0,
+    1,
+    2
+   ],
+   "fps": 10,
+   "loop": false,
+   "size": [
+    192,
+    64
+   ],
+   "events": [
+    {
+     "frame": 0,
+     "fn": "AnimEvent",
+     "arg": "Telegraph"
+    }
+   ]
+  },
+  {
+   "name": "Attack",
+   "dir": "Right",
+   "file": "Attack/Minotaur_Attack_Right.png",
+   "frames": 3,
+   "seq": [
+    0,
+    1,
+    2
+   ],
+   "fps": 12,
+   "loop": false,
+   "size": [
+    192,
+    64
+   ],
+   "events": [
+    {
+     "frame": 0,
+     "fn": "AnimEvent",
+     "arg": "HitOn"
+    },
+    {
+     "frame": 2,
+     "fn": "AnimEvent",
+     "arg": "HitOff"
+    }
+   ]
+  },
+  {
+   "name": "Attack",
+   "dir": "Left",
+   "file": "Attack/Minotaur_Attack_Left.png",
+   "frames": 3,
+   "seq": [
+    0,
+    1,
+    2
+   ],
+   "fps": 12,
+   "loop": false,
+   "size": [
+    192,
+    64
+   ],
+   "events": [
+    {
+     "frame": 0,
+     "fn": "AnimEvent",
+     "arg": "HitOn"
+    },
+    {
+     "frame": 2,
+     "fn": "AnimEvent",
+     "arg": "HitOff"
+    }
+   ]
+  },
+  {
+   "name": "Attack",
+   "dir": "Down",
+   "file": "Attack/Minotaur_Attack_Down.png",
+   "frames": 3,
+   "seq": [
+    0,
+    1,
+    2
+   ],
+   "fps": 12,
+   "loop": false,
+   "size": [
+    192,
+    64
+   ],
+   "events": [
+    {
+     "frame": 0,
+     "fn": "AnimEvent",
+     "arg": "HitOn"
+    },
+    {
+     "frame": 2,
+     "fn": "AnimEvent",
+     "arg": "HitOff"
+    }
+   ]
+  },
+  {
+   "name": "Attack",
+   "dir": "Up",
+   "file": "Attack/Minotaur_Attack_Up.png",
+   "frames": 3,
+   "seq": [
+    0,
+    1,
+    2
+   ],
+   "fps": 12,
+   "loop": false,
+   "size": [
+    192,
+    64
+   ],
+   "events": [
+    {
+     "frame": 0,
+     "fn": "AnimEvent",
+     "arg": "HitOn"
+    },
+    {
+     "frame": 2,
+     "fn": "AnimEvent",
+     "arg": "HitOff"
+    }
+   ]
+  },
+  {
+   "name": "AttackRecovery",
+   "dir": "Right",
+   "file": "Attack/Minotaur_AttackRecovery_Right.png",
+   "frames": 3,
+   "seq": [
+    0,
+    1,
+    2
+   ],
+   "fps": 9,
+   "loop": false,
+   "size": [
+    192,
+    64
+   ],
+   "events": [
+    {
+     "frame": 2,
+     "fn": "AnimEvent",
+     "arg": "End"
+    }
+   ]
+  },
+  {
+   "name": "AttackRecovery",
+   "dir": "Left",
+   "file": "Attack/Minotaur_AttackRecovery_Left.png",
+   "frames": 3,
+   "seq": [
+    0,
+    1,
+    2
+   ],
+   "fps": 9,
+   "loop": false,
+   "size": [
+    192,
+    64
+   ],
+   "events": [
+    {
+     "frame": 2,
+     "fn": "AnimEvent",
+     "arg": "End"
+    }
+   ]
+  },
+  {
+   "name": "AttackRecovery",
+   "dir": "Down",
+   "file": "Attack/Minotaur_AttackRecovery_Down.png",
+   "frames": 3,
+   "seq": [
+    0,
+    1,
+    2
+   ],
+   "fps": 9,
+   "loop": false,
+   "size": [
+    192,
+    64
+   ],
+   "events": [
+    {
+     "frame": 2,
+     "fn": "AnimEvent",
+     "arg": "End"
+    }
+   ]
+  },
+  {
+   "name": "AttackRecovery",
+   "dir": "Up",
+   "file": "Attack/Minotaur_AttackRecovery_Up.png",
+   "frames": 3,
+   "seq": [
+    0,
+    1,
+    2
+   ],
+   "fps": 9,
+   "loop": false,
+   "size": [
+    192,
+    64
+   ],
+   "events": [
+    {
+     "frame": 2,
+     "fn": "AnimEvent",
+     "arg": "End"
+    }
+   ]
+  },
+  {
+   "name": "HeavyAttack",
+   "dir": "Right",
+   "file": "Attack/Minotaur_HeavyAttack_Right.png",
+   "frames": 8,
+   "seq": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "fps": 10,
+   "loop": false,
+   "size": [
+    512,
+    64
+   ],
+   "events": [
+    {
+     "frame": 0,
+     "fn": "AnimEvent",
+     "arg": "Telegraph"
+    },
+    {
+     "frame": 3,
+     "fn": "AnimEvent",
+     "arg": "HitOn"
+    },
+    {
+     "frame": 5,
+     "fn": "AnimEvent",
+     "arg": "HitOff"
+    },
+    {
+     "frame": 7,
+     "fn": "AnimEvent",
+     "arg": "End"
+    }
+   ]
+  },
+  {
+   "name": "HeavyAttack",
+   "dir": "Left",
+   "file": "Attack/Minotaur_HeavyAttack_Left.png",
+   "frames": 8,
+   "seq": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "fps": 10,
+   "loop": false,
+   "size": [
+    512,
+    64
+   ],
+   "events": [
+    {
+     "frame": 0,
+     "fn": "AnimEvent",
+     "arg": "Telegraph"
+    },
+    {
+     "frame": 3,
+     "fn": "AnimEvent",
+     "arg": "HitOn"
+    },
+    {
+     "frame": 5,
+     "fn": "AnimEvent",
+     "arg": "HitOff"
+    },
+    {
+     "frame": 7,
+     "fn": "AnimEvent",
+     "arg": "End"
+    }
+   ]
+  },
+  {
+   "name": "HeavyAttack",
+   "dir": "Down",
+   "file": "Attack/Minotaur_HeavyAttack_Down.png",
+   "frames": 8,
+   "seq": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "fps": 10,
+   "loop": false,
+   "size": [
+    512,
+    64
+   ],
+   "events": [
+    {
+     "frame": 0,
+     "fn": "AnimEvent",
+     "arg": "Telegraph"
+    },
+    {
+     "frame": 3,
+     "fn": "AnimEvent",
+     "arg": "HitOn"
+    },
+    {
+     "frame": 5,
+     "fn": "AnimEvent",
+     "arg": "HitOff"
+    },
+    {
+     "frame": 7,
+     "fn": "AnimEvent",
+     "arg": "End"
+    }
+   ]
+  },
+  {
+   "name": "HeavyAttack",
+   "dir": "Up",
+   "file": "Attack/Minotaur_HeavyAttack_Up.png",
+   "frames": 8,
+   "seq": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "fps": 10,
+   "loop": false,
+   "size": [
+    512,
+    64
+   ],
+   "events": [
+    {
+     "frame": 0,
+     "fn": "AnimEvent",
+     "arg": "Telegraph"
+    },
+    {
+     "frame": 3,
+     "fn": "AnimEvent",
+     "arg": "HitOn"
+    },
+    {
+     "frame": 5,
+     "fn": "AnimEvent",
+     "arg": "HitOff"
+    },
+    {
+     "frame": 7,
+     "fn": "AnimEvent",
+     "arg": "End"
+    }
+   ]
+  },
+  {
+   "name": "SpecialAttack",
+   "dir": "Right",
+   "file": "Special/Minotaur_SpecialAttack_Right.png",
+   "frames": 6,
+   "seq": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "fps": 12,
+   "loop": false,
+   "size": [
+    384,
+    64
+   ],
+   "events": [
+    {
+     "frame": 0,
+     "fn": "AnimEvent",
+     "arg": "Telegraph"
+    },
+    {
+     "frame": 1,
+     "fn": "AnimEvent",
+     "arg": "HitOn"
+    },
+    {
+     "frame": 4,
+     "fn": "AnimEvent",
+     "arg": "HitOff"
+    },
+    {
+     "frame": 5,
+     "fn": "AnimEvent",
+     "arg": "End"
+    }
+   ]
+  },
+  {
+   "name": "SpecialAttack",
+   "dir": "Left",
+   "file": "Special/Minotaur_SpecialAttack_Left.png",
+   "frames": 6,
+   "seq": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "fps": 12,
+   "loop": false,
+   "size": [
+    384,
+    64
+   ],
+   "events": [
+    {
+     "frame": 0,
+     "fn": "AnimEvent",
+     "arg": "Telegraph"
+    },
+    {
+     "frame": 1,
+     "fn": "AnimEvent",
+     "arg": "HitOn"
+    },
+    {
+     "frame": 4,
+     "fn": "AnimEvent",
+     "arg": "HitOff"
+    },
+    {
+     "frame": 5,
+     "fn": "AnimEvent",
+     "arg": "End"
+    }
+   ]
+  },
+  {
+   "name": "SpecialAttack",
+   "dir": "Down",
+   "file": "Special/Minotaur_SpecialAttack_Down.png",
+   "frames": 6,
+   "seq": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "fps": 12,
+   "loop": false,
+   "size": [
+    384,
+    64
+   ],
+   "events": [
+    {
+     "frame": 0,
+     "fn": "AnimEvent",
+     "arg": "Telegraph"
+    },
+    {
+     "frame": 1,
+     "fn": "AnimEvent",
+     "arg": "HitOn"
+    },
+    {
+     "frame": 4,
+     "fn": "AnimEvent",
+     "arg": "HitOff"
+    },
+    {
+     "frame": 5,
+     "fn": "AnimEvent",
+     "arg": "End"
+    }
+   ]
+  },
+  {
+   "name": "SpecialAttack",
+   "dir": "Up",
+   "file": "Special/Minotaur_SpecialAttack_Up.png",
+   "frames": 6,
+   "seq": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "fps": 12,
+   "loop": false,
+   "size": [
+    384,
+    64
+   ],
+   "events": [
+    {
+     "frame": 0,
+     "fn": "AnimEvent",
+     "arg": "Telegraph"
+    },
+    {
+     "frame": 1,
+     "fn": "AnimEvent",
+     "arg": "HitOn"
+    },
+    {
+     "frame": 4,
+     "fn": "AnimEvent",
+     "arg": "HitOff"
+    },
+    {
+     "frame": 5,
+     "fn": "AnimEvent",
+     "arg": "End"
+    }
+   ]
+  },
+  {
+   "name": "CastSpell",
+   "dir": "Right",
+   "file": "Special/Minotaur_CastSpell_Right.png",
+   "frames": 5,
+   "seq": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "fps": 8,
+   "loop": false,
+   "size": [
+    320,
+    64
+   ],
+   "events": [
+    {
+     "frame": 0,
+     "fn": "AnimEvent",
+     "arg": "Telegraph"
+    },
+    {
+     "frame": 2,
+     "fn": "AnimEvent",
+     "arg": "Projectile"
+    },
+    {
+     "frame": 4,
+     "fn": "AnimEvent",
+     "arg": "End"
+    }
+   ]
+  },
+  {
+   "name": "CastSpell",
+   "dir": "Left",
+   "file": "Special/Minotaur_CastSpell_Left.png",
+   "frames": 5,
+   "seq": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "fps": 8,
+   "loop": false,
+   "size": [
+    320,
+    64
+   ],
+   "events": [
+    {
+     "frame": 0,
+     "fn": "AnimEvent",
+     "arg": "Telegraph"
+    },
+    {
+     "frame": 2,
+     "fn": "AnimEvent",
+     "arg": "Projectile"
+    },
+    {
+     "frame": 4,
+     "fn": "AnimEvent",
+     "arg": "End"
+    }
+   ]
+  },
+  {
+   "name": "CastSpell",
+   "dir": "Down",
+   "file": "Special/Minotaur_CastSpell_Down.png",
+   "frames": 5,
+   "seq": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "fps": 8,
+   "loop": false,
+   "size": [
+    320,
+    64
+   ],
+   "events": [
+    {
+     "frame": 0,
+     "fn": "AnimEvent",
+     "arg": "Telegraph"
+    },
+    {
+     "frame": 2,
+     "fn": "AnimEvent",
+     "arg": "Projectile"
+    },
+    {
+     "frame": 4,
+     "fn": "AnimEvent",
+     "arg": "End"
+    }
+   ]
+  },
+  {
+   "name": "CastSpell",
+   "dir": "Up",
+   "file": "Special/Minotaur_CastSpell_Up.png",
+   "frames": 5,
+   "seq": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "fps": 8,
+   "loop": false,
+   "size": [
+    320,
+    64
+   ],
+   "events": [
+    {
+     "frame": 0,
+     "fn": "AnimEvent",
+     "arg": "Telegraph"
+    },
+    {
+     "frame": 2,
+     "fn": "AnimEvent",
+     "arg": "Projectile"
+    },
+    {
+     "frame": 4,
+     "fn": "AnimEvent",
+     "arg": "End"
+    }
+   ]
+  },
+  {
+   "name": "Hurt",
+   "dir": "Right",
+   "file": "Hurt/Minotaur_Hurt_Right.png",
+   "frames": 3,
+   "seq": [
+    0,
+    1,
+    2
+   ],
+   "fps": 12,
+   "loop": false,
+   "size": [
+    192,
+    64
+   ],
+   "events": []
+  },
+  {
+   "name": "Hurt",
+   "dir": "Left",
+   "file": "Hurt/Minotaur_Hurt_Left.png",
+   "frames": 3,
+   "seq": [
+    0,
+    1,
+    2
+   ],
+   "fps": 12,
+   "loop": false,
+   "size": [
+    192,
+    64
+   ],
+   "events": []
+  },
+  {
+   "name": "Hurt",
+   "dir": "Down",
+   "file": "Hurt/Minotaur_Hurt_Down.png",
+   "frames": 3,
+   "seq": [
+    0,
+    1,
+    2
+   ],
+   "fps": 12,
+   "loop": false,
+   "size": [
+    192,
+    64
+   ],
+   "events": []
+  },
+  {
+   "name": "Hurt",
+   "dir": "Up",
+   "file": "Hurt/Minotaur_Hurt_Up.png",
+   "frames": 3,
+   "seq": [
+    0,
+    1,
+    2
+   ],
+   "fps": 12,
+   "loop": false,
+   "size": [
+    192,
+    64
+   ],
+   "events": []
+  },
+  {
+   "name": "Block",
+   "dir": "Right",
+   "file": "Combat/Minotaur_Block_Right.png",
+   "frames": 1,
+   "seq": [
+    0,
+    0
+   ],
+   "fps": 10,
+   "loop": false,
+   "size": [
+    64,
+    64
+   ],
+   "events": []
+  },
+  {
+   "name": "Block",
+   "dir": "Left",
+   "file": "Combat/Minotaur_Block_Left.png",
+   "frames": 1,
+   "seq": [
+    0,
+    0
+   ],
+   "fps": 10,
+   "loop": false,
+   "size": [
+    64,
+    64
+   ],
+   "events": []
+  },
+  {
+   "name": "Block",
+   "dir": "Down",
+   "file": "Combat/Minotaur_Block_Down.png",
+   "frames": 1,
+   "seq": [
+    0,
+    0
+   ],
+   "fps": 10,
+   "loop": false,
+   "size": [
+    64,
+    64
+   ],
+   "events": []
+  },
+  {
+   "name": "Block",
+   "dir": "Up",
+   "file": "Combat/Minotaur_Block_Up.png",
+   "frames": 1,
+   "seq": [
+    0,
+    0
+   ],
+   "fps": 10,
+   "loop": false,
+   "size": [
+    64,
+    64
+   ],
+   "events": []
+  },
+  {
+   "name": "BlockHit",
+   "dir": "Right",
+   "file": "Combat/Minotaur_BlockHit_Right.png",
+   "frames": 2,
+   "seq": [
+    0,
+    1
+   ],
+   "fps": 12,
+   "loop": false,
+   "size": [
+    128,
+    64
+   ],
+   "events": []
+  },
+  {
+   "name": "BlockHit",
+   "dir": "Left",
+   "file": "Combat/Minotaur_BlockHit_Left.png",
+   "frames": 2,
+   "seq": [
+    0,
+    1
+   ],
+   "fps": 12,
+   "loop": false,
+   "size": [
+    128,
+    64
+   ],
+   "events": []
+  },
+  {
+   "name": "BlockHit",
+   "dir": "Down",
+   "file": "Combat/Minotaur_BlockHit_Down.png",
+   "frames": 2,
+   "seq": [
+    0,
+    1
+   ],
+   "fps": 12,
+   "loop": false,
+   "size": [
+    128,
+    64
+   ],
+   "events": []
+  },
+  {
+   "name": "BlockHit",
+   "dir": "Up",
+   "file": "Combat/Minotaur_BlockHit_Up.png",
+   "frames": 2,
+   "seq": [
+    0,
+    1
+   ],
+   "fps": 12,
+   "loop": false,
+   "size": [
+    128,
+    64
+   ],
+   "events": []
+  },
+  {
+   "name": "Dodge",
+   "dir": "Right",
+   "file": "Dodge/Minotaur_Dodge_Right.png",
+   "frames": 5,
+   "seq": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "fps": 14,
+   "loop": false,
+   "size": [
+    320,
+    64
+   ],
+   "events": []
+  },
+  {
+   "name": "Dodge",
+   "dir": "Left",
+   "file": "Dodge/Minotaur_Dodge_Left.png",
+   "frames": 5,
+   "seq": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "fps": 14,
+   "loop": false,
+   "size": [
+    320,
+    64
+   ],
+   "events": []
+  },
+  {
+   "name": "Dodge",
+   "dir": "Down",
+   "file": "Dodge/Minotaur_Dodge_Down.png",
+   "frames": 5,
+   "seq": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "fps": 14,
+   "loop": false,
+   "size": [
+    320,
+    64
+   ],
+   "events": []
+  },
+  {
+   "name": "Dodge",
+   "dir": "Up",
+   "file": "Dodge/Minotaur_Dodge_Up.png",
+   "frames": 5,
+   "seq": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "fps": 14,
+   "loop": false,
+   "size": [
+    320,
+    64
+   ],
+   "events": []
+  },
+  {
+   "name": "Death",
+   "dir": "Right",
+   "file": "Death/Minotaur_Death_Right.png",
+   "frames": 6,
+   "seq": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "fps": 8,
+   "loop": false,
+   "size": [
+    384,
+    64
+   ],
+   "events": []
+  },
+  {
+   "name": "Death",
+   "dir": "Left",
+   "file": "Death/Minotaur_Death_Left.png",
+   "frames": 6,
+   "seq": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "fps": 8,
+   "loop": false,
+   "size": [
+    384,
+    64
+   ],
+   "events": []
+  },
+  {
+   "name": "Death",
+   "dir": "Down",
+   "file": "Death/Minotaur_Death_Down.png",
+   "frames": 6,
+   "seq": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "fps": 8,
+   "loop": false,
+   "size": [
+    384,
+    64
+   ],
+   "events": []
+  },
+  {
+   "name": "Death",
+   "dir": "Up",
+   "file": "Death/Minotaur_Death_Up.png",
+   "frames": 6,
+   "seq": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "fps": 8,
+   "loop": false,
+   "size": [
+    384,
+    64
+   ],
+   "events": []
+  }
+ ]
+}

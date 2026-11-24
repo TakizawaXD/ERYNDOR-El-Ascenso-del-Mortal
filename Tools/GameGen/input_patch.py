@@ -1,0 +1,10 @@
+p = 'G:/Juegos/Assets/Game/Scripts/Core/GameInput.cs'
+s = open(p, encoding='utf8').read()
+s = s.replace("        bool Up { get; }\n        bool Down { get; }\n    }", "        bool Up { get; }\n        bool Down { get; }\n        bool Map { get; }\n        bool Journal { get; }\n    }")
+s = s.replace("        public static bool Down => Source.Down;\n", "        public static bool Down => Source.Down;\n        public static bool Map => Source.Map;\n        public static bool Journal => Source.Journal;\n")
+s = s.replace("        public bool Down => K(KeyCode.S) || K(KeyCode.DownArrow);\n    }", "        public bool Down => K(KeyCode.S) || K(KeyCode.DownArrow);\n        public bool Map => K(KeyCode.M);\n        public bool Journal => K(KeyCode.Tab) || K(KeyCode.I);\n    }")
+s = s.replace("int _attack, _heavy, _special, _roll, _interact, _potion, _pause, _confirm, _up, _down;", "int _attack, _heavy, _special, _roll, _interact, _potion, _pause, _confirm, _up, _down, _map, _journal;")
+s = s.replace("                case \"Down\": _down = f; break;\n", "                case \"Down\": _down = f; break;\n                case \"Map\": _map = f; break;\n                case \"Journal\": _journal = f; break;\n")
+s = s.replace("        public bool Down => Now(_down);\n", "        public bool Down => Now(_down);\n        public bool Map => Now(_map);\n        public bool Journal => Now(_journal);\n")
+open(p, 'w', encoding='utf8').write(s)
+print(s.count('Map'), s.count('Journal'))

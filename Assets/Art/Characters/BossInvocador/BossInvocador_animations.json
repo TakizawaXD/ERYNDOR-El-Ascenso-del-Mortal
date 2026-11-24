@@ -1,0 +1,977 @@
+{
+ "character": "BossInvocador",
+ "cell": 128,
+ "pivot": [
+  0.5,
+  0.125
+ ],
+ "ppu": 16,
+ "clips": [
+  {
+   "name": "Attack",
+   "dir": "Down",
+   "file": "Attack/BossInvocador_Attack_Down.png",
+   "frames": 5,
+   "seq": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "fps": 12,
+   "loop": false,
+   "size": [
+    640,
+    128
+   ],
+   "events": [
+    {
+     "frame": 0,
+     "fn": "AnimEvent",
+     "arg": "HitOn"
+    },
+    {
+     "frame": 4,
+     "fn": "AnimEvent",
+     "arg": "HitOff"
+    },
+    {
+     "frame": 4,
+     "fn": "AnimEvent",
+     "arg": "ComboWindow"
+    },
+    {
+     "frame": 4,
+     "fn": "AnimEvent",
+     "arg": "End"
+    }
+   ]
+  },
+  {
+   "name": "Attack",
+   "dir": "Left",
+   "file": "Attack/BossInvocador_Attack_Left.png",
+   "frames": 5,
+   "seq": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "fps": 12,
+   "loop": false,
+   "size": [
+    640,
+    128
+   ],
+   "events": [
+    {
+     "frame": 0,
+     "fn": "AnimEvent",
+     "arg": "HitOn"
+    },
+    {
+     "frame": 4,
+     "fn": "AnimEvent",
+     "arg": "HitOff"
+    },
+    {
+     "frame": 4,
+     "fn": "AnimEvent",
+     "arg": "ComboWindow"
+    },
+    {
+     "frame": 4,
+     "fn": "AnimEvent",
+     "arg": "End"
+    }
+   ]
+  },
+  {
+   "name": "Attack",
+   "dir": "Right",
+   "file": "Attack/BossInvocador_Attack_Right.png",
+   "frames": 5,
+   "seq": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "fps": 12,
+   "loop": false,
+   "size": [
+    640,
+    128
+   ],
+   "events": [
+    {
+     "frame": 0,
+     "fn": "AnimEvent",
+     "arg": "HitOn"
+    },
+    {
+     "frame": 4,
+     "fn": "AnimEvent",
+     "arg": "HitOff"
+    },
+    {
+     "frame": 4,
+     "fn": "AnimEvent",
+     "arg": "ComboWindow"
+    },
+    {
+     "frame": 4,
+     "fn": "AnimEvent",
+     "arg": "End"
+    }
+   ]
+  },
+  {
+   "name": "Attack",
+   "dir": "Up",
+   "file": "Attack/BossInvocador_Attack_Up.png",
+   "frames": 5,
+   "seq": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "fps": 12,
+   "loop": false,
+   "size": [
+    640,
+    128
+   ],
+   "events": [
+    {
+     "frame": 0,
+     "fn": "AnimEvent",
+     "arg": "HitOn"
+    },
+    {
+     "frame": 4,
+     "fn": "AnimEvent",
+     "arg": "HitOff"
+    },
+    {
+     "frame": 4,
+     "fn": "AnimEvent",
+     "arg": "ComboWindow"
+    },
+    {
+     "frame": 4,
+     "fn": "AnimEvent",
+     "arg": "End"
+    }
+   ]
+  },
+  {
+   "name": "CastSpell",
+   "dir": "Down",
+   "file": "Special/BossInvocador_CastSpell_Down.png",
+   "frames": 6,
+   "seq": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "fps": 8,
+   "loop": false,
+   "size": [
+    768,
+    128
+   ],
+   "events": [
+    {
+     "frame": 0,
+     "fn": "AnimEvent",
+     "arg": "Projectile"
+    },
+    {
+     "frame": 0,
+     "fn": "AnimEvent",
+     "arg": "HitOn"
+    },
+    {
+     "frame": 5,
+     "fn": "AnimEvent",
+     "arg": "HitOff"
+    },
+    {
+     "frame": 5,
+     "fn": "AnimEvent",
+     "arg": "End"
+    }
+   ]
+  },
+  {
+   "name": "CastSpell",
+   "dir": "Left",
+   "file": "Special/BossInvocador_CastSpell_Left.png",
+   "frames": 6,
+   "seq": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "fps": 8,
+   "loop": false,
+   "size": [
+    768,
+    128
+   ],
+   "events": [
+    {
+     "frame": 0,
+     "fn": "AnimEvent",
+     "arg": "Projectile"
+    },
+    {
+     "frame": 0,
+     "fn": "AnimEvent",
+     "arg": "HitOn"
+    },
+    {
+     "frame": 5,
+     "fn": "AnimEvent",
+     "arg": "HitOff"
+    },
+    {
+     "frame": 5,
+     "fn": "AnimEvent",
+     "arg": "End"
+    }
+   ]
+  },
+  {
+   "name": "CastSpell",
+   "dir": "Right",
+   "file": "Special/BossInvocador_CastSpell_Right.png",
+   "frames": 6,
+   "seq": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "fps": 8,
+   "loop": false,
+   "size": [
+    768,
+    128
+   ],
+   "events": [
+    {
+     "frame": 0,
+     "fn": "AnimEvent",
+     "arg": "Projectile"
+    },
+    {
+     "frame": 0,
+     "fn": "AnimEvent",
+     "arg": "HitOn"
+    },
+    {
+     "frame": 5,
+     "fn": "AnimEvent",
+     "arg": "HitOff"
+    },
+    {
+     "frame": 5,
+     "fn": "AnimEvent",
+     "arg": "End"
+    }
+   ]
+  },
+  {
+   "name": "CastSpell",
+   "dir": "Up",
+   "file": "Special/BossInvocador_CastSpell_Up.png",
+   "frames": 6,
+   "seq": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "fps": 8,
+   "loop": false,
+   "size": [
+    768,
+    128
+   ],
+   "events": [
+    {
+     "frame": 0,
+     "fn": "AnimEvent",
+     "arg": "Projectile"
+    },
+    {
+     "frame": 0,
+     "fn": "AnimEvent",
+     "arg": "HitOn"
+    },
+    {
+     "frame": 5,
+     "fn": "AnimEvent",
+     "arg": "HitOff"
+    },
+    {
+     "frame": 5,
+     "fn": "AnimEvent",
+     "arg": "End"
+    }
+   ]
+  },
+  {
+   "name": "Death",
+   "dir": "Down",
+   "file": "Death/BossInvocador_Death_Down.png",
+   "frames": 8,
+   "seq": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "fps": 8,
+   "loop": false,
+   "size": [
+    1024,
+    128
+   ]
+  },
+  {
+   "name": "Death",
+   "dir": "Left",
+   "file": "Death/BossInvocador_Death_Left.png",
+   "frames": 8,
+   "seq": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "fps": 8,
+   "loop": false,
+   "size": [
+    1024,
+    128
+   ]
+  },
+  {
+   "name": "Death",
+   "dir": "Right",
+   "file": "Death/BossInvocador_Death_Right.png",
+   "frames": 8,
+   "seq": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "fps": 8,
+   "loop": false,
+   "size": [
+    1024,
+    128
+   ]
+  },
+  {
+   "name": "Death",
+   "dir": "Up",
+   "file": "Death/BossInvocador_Death_Up.png",
+   "frames": 8,
+   "seq": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "fps": 8,
+   "loop": false,
+   "size": [
+    1024,
+    128
+   ]
+  },
+  {
+   "name": "HeavyAttack",
+   "dir": "Down",
+   "file": "Attack/BossInvocador_HeavyAttack_Down.png",
+   "frames": 6,
+   "seq": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "fps": 10,
+   "loop": false,
+   "size": [
+    768,
+    128
+   ],
+   "events": [
+    {
+     "frame": 0,
+     "fn": "AnimEvent",
+     "arg": "HitOn"
+    },
+    {
+     "frame": 5,
+     "fn": "AnimEvent",
+     "arg": "HitOff"
+    },
+    {
+     "frame": 5,
+     "fn": "AnimEvent",
+     "arg": "End"
+    }
+   ]
+  },
+  {
+   "name": "HeavyAttack",
+   "dir": "Left",
+   "file": "Attack/BossInvocador_HeavyAttack_Left.png",
+   "frames": 6,
+   "seq": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "fps": 10,
+   "loop": false,
+   "size": [
+    768,
+    128
+   ],
+   "events": [
+    {
+     "frame": 0,
+     "fn": "AnimEvent",
+     "arg": "Anticipation"
+    },
+    {
+     "frame": 1,
+     "fn": "AnimEvent",
+     "arg": "HitOn"
+    },
+    {
+     "frame": 4,
+     "fn": "AnimEvent",
+     "arg": "HitOff"
+    },
+    {
+     "frame": 5,
+     "fn": "AnimEvent",
+     "arg": "End"
+    }
+   ]
+  },
+  {
+   "name": "HeavyAttack",
+   "dir": "Right",
+   "file": "Attack/BossInvocador_HeavyAttack_Right.png",
+   "frames": 6,
+   "seq": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "fps": 10,
+   "loop": false,
+   "size": [
+    768,
+    128
+   ],
+   "events": [
+    {
+     "frame": 0,
+     "fn": "AnimEvent",
+     "arg": "Anticipation"
+    },
+    {
+     "frame": 1,
+     "fn": "AnimEvent",
+     "arg": "HitOn"
+    },
+    {
+     "frame": 4,
+     "fn": "AnimEvent",
+     "arg": "HitOff"
+    },
+    {
+     "frame": 5,
+     "fn": "AnimEvent",
+     "arg": "End"
+    }
+   ]
+  },
+  {
+   "name": "HeavyAttack",
+   "dir": "Up",
+   "file": "Attack/BossInvocador_HeavyAttack_Up.png",
+   "frames": 6,
+   "seq": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "fps": 10,
+   "loop": false,
+   "size": [
+    768,
+    128
+   ],
+   "events": [
+    {
+     "frame": 0,
+     "fn": "AnimEvent",
+     "arg": "HitOn"
+    },
+    {
+     "frame": 5,
+     "fn": "AnimEvent",
+     "arg": "HitOff"
+    },
+    {
+     "frame": 5,
+     "fn": "AnimEvent",
+     "arg": "End"
+    }
+   ]
+  },
+  {
+   "name": "Hurt",
+   "dir": "Down",
+   "file": "Hurt/BossInvocador_Hurt_Down.png",
+   "frames": 3,
+   "seq": [
+    0,
+    1,
+    2
+   ],
+   "fps": 12,
+   "loop": false,
+   "size": [
+    384,
+    128
+   ]
+  },
+  {
+   "name": "Hurt",
+   "dir": "Left",
+   "file": "Hurt/BossInvocador_Hurt_Left.png",
+   "frames": 3,
+   "seq": [
+    0,
+    1,
+    2
+   ],
+   "fps": 12,
+   "loop": false,
+   "size": [
+    384,
+    128
+   ]
+  },
+  {
+   "name": "Hurt",
+   "dir": "Right",
+   "file": "Hurt/BossInvocador_Hurt_Right.png",
+   "frames": 3,
+   "seq": [
+    0,
+    1,
+    2
+   ],
+   "fps": 12,
+   "loop": false,
+   "size": [
+    384,
+    128
+   ]
+  },
+  {
+   "name": "Hurt",
+   "dir": "Up",
+   "file": "Hurt/BossInvocador_Hurt_Up.png",
+   "frames": 3,
+   "seq": [
+    0,
+    1,
+    2
+   ],
+   "fps": 12,
+   "loop": false,
+   "size": [
+    384,
+    128
+   ]
+  },
+  {
+   "name": "Idle",
+   "dir": "Down",
+   "file": "Idle/BossInvocador_Idle_Down.png",
+   "frames": 4,
+   "seq": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "fps": 6,
+   "loop": true,
+   "size": [
+    512,
+    128
+   ]
+  },
+  {
+   "name": "Idle",
+   "dir": "Left",
+   "file": "Idle/BossInvocador_Idle_Left.png",
+   "frames": 4,
+   "seq": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "fps": 6,
+   "loop": true,
+   "size": [
+    512,
+    128
+   ]
+  },
+  {
+   "name": "Idle",
+   "dir": "Right",
+   "file": "Idle/BossInvocador_Idle_Right.png",
+   "frames": 4,
+   "seq": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "fps": 6,
+   "loop": true,
+   "size": [
+    512,
+    128
+   ]
+  },
+  {
+   "name": "Idle",
+   "dir": "Up",
+   "file": "Idle/BossInvocador_Idle_Up.png",
+   "frames": 4,
+   "seq": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "fps": 6,
+   "loop": true,
+   "size": [
+    512,
+    128
+   ]
+  },
+  {
+   "name": "SpecialAttack",
+   "dir": "Down",
+   "file": "Special/BossInvocador_SpecialAttack_Down.png",
+   "frames": 6,
+   "seq": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "fps": 10,
+   "loop": false,
+   "size": [
+    768,
+    128
+   ],
+   "events": [
+    {
+     "frame": 0,
+     "fn": "AnimEvent",
+     "arg": "Projectile"
+    },
+    {
+     "frame": 0,
+     "fn": "AnimEvent",
+     "arg": "HitOn"
+    },
+    {
+     "frame": 5,
+     "fn": "AnimEvent",
+     "arg": "HitOff"
+    },
+    {
+     "frame": 5,
+     "fn": "AnimEvent",
+     "arg": "End"
+    }
+   ]
+  },
+  {
+   "name": "SpecialAttack",
+   "dir": "Left",
+   "file": "Special/BossInvocador_SpecialAttack_Left.png",
+   "frames": 6,
+   "seq": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "fps": 10,
+   "loop": false,
+   "size": [
+    768,
+    128
+   ],
+   "events": [
+    {
+     "frame": 0,
+     "fn": "AnimEvent",
+     "arg": "Projectile"
+    },
+    {
+     "frame": 0,
+     "fn": "AnimEvent",
+     "arg": "HitOn"
+    },
+    {
+     "frame": 5,
+     "fn": "AnimEvent",
+     "arg": "HitOff"
+    },
+    {
+     "frame": 5,
+     "fn": "AnimEvent",
+     "arg": "End"
+    }
+   ]
+  },
+  {
+   "name": "SpecialAttack",
+   "dir": "Right",
+   "file": "Special/BossInvocador_SpecialAttack_Right.png",
+   "frames": 6,
+   "seq": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "fps": 10,
+   "loop": false,
+   "size": [
+    768,
+    128
+   ],
+   "events": [
+    {
+     "frame": 0,
+     "fn": "AnimEvent",
+     "arg": "Projectile"
+    },
+    {
+     "frame": 0,
+     "fn": "AnimEvent",
+     "arg": "HitOn"
+    },
+    {
+     "frame": 5,
+     "fn": "AnimEvent",
+     "arg": "HitOff"
+    },
+    {
+     "frame": 5,
+     "fn": "AnimEvent",
+     "arg": "End"
+    }
+   ]
+  },
+  {
+   "name": "SpecialAttack",
+   "dir": "Up",
+   "file": "Special/BossInvocador_SpecialAttack_Up.png",
+   "frames": 6,
+   "seq": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "fps": 10,
+   "loop": false,
+   "size": [
+    768,
+    128
+   ],
+   "events": [
+    {
+     "frame": 0,
+     "fn": "AnimEvent",
+     "arg": "Projectile"
+    },
+    {
+     "frame": 0,
+     "fn": "AnimEvent",
+     "arg": "HitOn"
+    },
+    {
+     "frame": 5,
+     "fn": "AnimEvent",
+     "arg": "HitOff"
+    },
+    {
+     "frame": 5,
+     "fn": "AnimEvent",
+     "arg": "End"
+    }
+   ]
+  },
+  {
+   "name": "Walk",
+   "dir": "Down",
+   "file": "Walk/BossInvocador_Walk_Down.png",
+   "frames": 6,
+   "seq": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "fps": 8,
+   "loop": true,
+   "size": [
+    768,
+    128
+   ]
+  },
+  {
+   "name": "Walk",
+   "dir": "Left",
+   "file": "Walk/BossInvocador_Walk_Left.png",
+   "frames": 6,
+   "seq": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "fps": 8,
+   "loop": true,
+   "size": [
+    768,
+    128
+   ]
+  },
+  {
+   "name": "Walk",
+   "dir": "Right",
+   "file": "Walk/BossInvocador_Walk_Right.png",
+   "frames": 6,
+   "seq": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "fps": 8,
+   "loop": true,
+   "size": [
+    768,
+    128
+   ]
+  },
+  {
+   "name": "Walk",
+   "dir": "Up",
+   "file": "Walk/BossInvocador_Walk_Up.png",
+   "frames": 6,
+   "seq": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "fps": 8,
+   "loop": true,
+   "size": [
+    768,
+    128
+   ]
+  }
+ ]
+}
