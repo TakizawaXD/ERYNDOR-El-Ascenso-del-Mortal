@@ -14,7 +14,7 @@
 ## Índice
 
 1. [Resumen](#1-resumen)
-2. [Puesta en marcha](#2-puesta-en-marcha)
+2. [Requisitos y puesta en marcha](#2-requisitos-y-puesta-en-marcha)
 3. [Controles](#3-controles)
 4. [El mundo](#4-el-mundo)
 5. [Ciudades](#5-ciudades)
@@ -62,10 +62,41 @@ han sido derrotados en sus guaridas subterráneas, y vencer al **Señor Demonio*
 
 ---
 
-## 2. Puesta en marcha
+## 2. Requisitos y puesta en marcha
 
-**Requisitos:** Unity 6000.6.4f1 (Unity Hub), Git LFS (el repositorio guarda escenas, audio y fuentes en LFS) y, solo para
-regenerar contenido, Python 3.11 o superior con `numpy`, `scipy` y `Pillow`.
+### Requisitos del sistema para jugar
+
+| Componente | Mínimo | Recomendado |
+|---|---|---|
+| Sistema operativo | Windows 10 de 64 bits (21H1 o posterior) | Windows 11 de 64 bits |
+| Procesador | 4 núcleos a 2,5 GHz (Intel Core i5 de 4.ª generación o AMD Ryzen 3 1200) | 6 núcleos a 3,0 GHz (Intel Core i5-8400 o AMD Ryzen 5 2600) |
+| Memoria RAM | 8 GB | 16 GB |
+| Tarjeta gráfica | DirectX 11 con 2 GB de VRAM (NVIDIA GeForce GTX 750 Ti o AMD Radeon RX 460) | DirectX 12 con 4 GB de VRAM (NVIDIA GeForce GTX 1060 o AMD Radeon RX 580) |
+| Almacenamiento | 2 GB libres | 2 GB libres en SSD |
+| Resolución | 1280 × 720 | 1920 × 1080 |
+| Controles | teclado | teclado y ratón |
+
+**En qué se basan estas cifras.** No se han medido todavía en equipos de referencia; se han estimado a partir de lo que el
+juego carga:
+
+- El mundo es una sola escena con unos 49 600 objetos, 48 300 sprites y 16 500 colisionadores, cargados a la vez.
+- El suelo pintado son 499 texturas de 512 × 512 sin compresión, unos 500 MB de memoria de vídeo; con el resto de sprites,
+  el juego necesita en torno a 700 MB de VRAM, de ahí los 2 GB mínimos.
+- El procesador es el factor que más pesa: los enemigos lejanos se duermen, pero el viento anima unas 29 000 plantas y el
+  motor ordena decenas de miles de sprites en cada fotograma. Las gráficas integradas pueden funcionar, pero no se
+  garantiza una tasa de imágenes estable.
+
+### Requisitos para desarrollar
+
+| Componente | Mínimo | Recomendado |
+|---|---|---|
+| Motor | Unity 6000.6.4f1 (Unity Hub) | Unity 6000.6.4f1 (Unity Hub) |
+| Memoria RAM | 16 GB (el editor ocupa unos 3,5 GB con el mundo abierto) | 32 GB |
+| Almacenamiento | 20 GB libres (proyecto, caché de Unity y archivos de Git LFS) | 40 GB libres en SSD |
+| Control de versiones | Git con Git LFS | Git con Git LFS |
+| Herramientas de contenido | Python 3.11 o superior con `numpy`, `scipy` y `Pillow` | lo mismo, con 8 núcleos (el pintado del suelo se reparte entre varios procesos) |
+
+### Instalación
 
 ```powershell
 git lfs install
