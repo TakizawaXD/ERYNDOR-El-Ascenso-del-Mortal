@@ -158,6 +158,131 @@ def enemies():
     out.save(os.path.join(OUT, 'enemigos.png'))
 
 
+# ---------------------------------------------------------------------- data maps (biomes, enemy density, town plans)
+BIOME_COL = {'a': (122, 170, 82), 'b': (40, 104, 52), 'c': (214, 196, 128), 'd': (92, 62, 110), 'e': (226, 234, 242),
+             'f': (222, 152, 92), 'g': (88, 70, 74), 'h': (138, 78, 176), 'i': (96, 150, 96), 'j': (104, 160, 176)}
+SEA = (24, 46, 84)
+
+
+def grids():
+    L = open(os.path.join(LV, 'World2.txt'), encoding='utf-8').read().splitlines()
+    W, H = map(int, [l for l in L if l.startswith('SIZE ')][0].split()[1:3])
+    SW, SH = map(int, [l for l in L if l.startswith('SURFACE ')][0].split()[1:3])
+    t0, e0, r0 = L.index('TERRAIN'), L.index('ENTITIES'), L.index('REGIONS')
+    return L, W, H, SW, SH, L[t0 + 1:t0 + 1 + H], L[e0 + 1:e0 + 1 + H], L[r0 + 1:r0 + 1 + H]
+
+
+def legend(d, x, y, items, sz=17, sw=22):
+    for i, (col, text) in enumerate(items):
+        yy = y + i * (sw + 8)
+        d.rectangle([x, yy, x + sw, yy + sw], fill=col, outline=(10, 8, 16), width=2)
+        d.text((x + sw + 10, yy + sw / 2), text, font=font(sz), fill=(235, 230, 245), anchor='lm')
+
+
+def biome_map():
+    L, W, H, SW, SH, T, E, R = grids()
+    names = {l[11]: l[13:] for l in L if l.startswith('REGIONNAME ')}
+    k = 2
+    img = Image.new('RGB', (SW * k + 380, SH * k), (16, 14, 24))
+    px = img.load()
+    for y in range(SH):
+        for x in range(SW):
+            c = SEA if T[y][x] == 'O' else BIOME_COL.get(R[y][x], (60, 60, 60))
+            if T[y][x] in 'wL=H' and T[y][x] != 'O': c = (52, 110, 190) if T[y][x] != 'L' else (240, 110, 30)
+            if T[y][x] in '_p': c = tuple(min(255, int(v * 0.72 + 60)) for v in c)
+            for dy in range(k):
+                for dx in range(k): px[x * k + dx, y * k + dy] = c
+    d = ImageDraw.Draw(img)
+    items = [(BIOME_COL[c], names.get(c, c).title()) for c in 'abcdefghij']
+    items += [(SEA, 'Mar'), ((52, 110, 190), 'Ríos y lagos'), ((240, 110, 30), 'Lava')]
+    d.text((SW * k + 24, 24), 'Biomas de Eryndor', font=font(22), fill=(255, 225, 150))
+    legend(d, SW * k + 24, 64, items)
+    img.save(os.path.join(OUT, 'mapa_biomas.png'))
+
+
+def enemy_density():
+    import scipy.ndimage as nd
+    L, W, H, SW, SH, T, E, R = grids()
+    dens = np.zeros((SH, SW), np.float32)
+    for l in L:
+        if l.startswith('ENEMY '):
+            q = l.split(' '); x, y = int(q[2]), int(q[3])
+            if x < SW: dens[y, x] += 1
+    dens = nd.gaussian_filter(dens, 6)
+    dens /= dens.max()
+    base = np.zeros((SH, SW, 3), np.float32)
+    for y in range(SH):
+        for x in range(SW):
+            base[y, x] = SEA if T[y][x] == 'O' else (70, 70, 78)
+    hot = np.array((228, 64, 52), np.float32)
+    a = np.clip(dens * 1.4, 0, 1)[:, :, None]
+    land = np.array([[T[y][x] != 'O' for x in range(SW)] for y in range(SH)])[:, :, None]
+    out = base * (1 - a * land) + (hot * a + base * 0.15 * a) * land
+    img = Image.fromarray(out.clip(0, 255).astype(np.uint8)).resize((SW * 2, SH * 2), Image.NEAREST)
+    canvas = Image.new('RGB', (SW * 2 + 330, SH * 2), (16, 14, 24)); canvas.paste(img, (0, 0))
+    d = ImageDraw.Draw(canvas)
+    cat = open(os.path.join(LV, 'Maps.txt'), encoding='utf-8').read().splitlines()
+    for l in cat:
+        q = l.split(' ')
+        if q[0] == 'TOWN':
+            x0, r0, x1, r1 = map(int, q[2:6])
+            d.rectangle([x0 * 2, r0 * 2, x1 * 2, r1 * 2], outline=(255, 215, 110), width=3)
+    d.text((SW * 2 + 24, 24), 'Densidad de enemigos', font=font(22), fill=(255, 225, 150))
+    steps = [(70, 70, 78), (150, 68, 64), (200, 66, 56), (228, 64, 52)]
+    legend(d, SW * 2 + 24, 64, [(steps[0], 'Sin enemigos'), (steps[1], 'Baja'), (steps[2], 'Media'), (steps[3], 'Alta'),
+                                ((255, 215, 110), 'Ciudad (zona segura)')])
+    canvas.save(os.path.join(OUT, 'mapa_enemigos.png'))
+
+
+HOUSE_NAMES = {'casa': 'Casa', 'cabana': 'Cabaña', 'posada': 'Posada', 'herreria': 'Herrería', 'capilla': 'Capilla',
+               'biblioteca': 'Biblioteca', 'cuartel': 'Cuartel'}
+TER = {'.': (98, 150, 70), 'f': (58, 110, 56), '_': (200, 176, 128), 'p': (150, 148, 140), 'w': (60, 120, 200), 'O': (34, 70, 140),
+       '=': (130, 90, 50), 'H': (130, 90, 50), 'D': (130, 90, 50), 'c': (110, 104, 92), 'k': (60, 52, 56), 'a': (90, 80, 84),
+       'F': (170, 126, 64), 's': (60, 90, 70), 'L': (240, 110, 30), 'd': (220, 170, 110), 'n': (230, 236, 244), 'C': (200, 210, 225), 'v': (110, 70, 140)}
+
+
+def town_plans():
+    L, W, H, SW, SH, T, E, R = grids()
+    houses = {(int(l.split()[1]), int(l.split()[2])): l.split()[3] for l in L if l.startswith('HOUSE ')}
+    cat = open(os.path.join(LV, 'Maps.txt'), encoding='utf-8').read().splitlines()
+    k = 9
+    for l in cat:
+        q = l.split(' ')
+        if q[0] not in ('TOWN', 'ZONE'): continue
+        mid = q[1]; x0, r0, x1, r1 = map(int, q[2:6]); title = ' '.join(q[6:]).split('|')[0].title()
+        w, h = x1 - x0 + 1, r1 - r0 + 1
+        img = Image.new('RGB', (w * k, h * k + 50), (16, 14, 24))
+        d = ImageDraw.Draw(img)
+        for y in range(h):
+            for x in range(w):
+                d.rectangle([x * k, y * k + 50, x * k + k - 1, y * k + 50 + k - 1], fill=TER.get(T[r0 + y][x0 + x], (80, 80, 80)))
+        labels = []
+        for y in range(h):
+            for x in range(w):
+                c = E[r0 + y][x0 + x]
+                cx, cy = x * k + k / 2, y * k + 50 + k / 2
+                if c in 'TUtAVuiIY':
+                    d.ellipse([cx - k * .55, cy - k * .55, cx + k * .55, cy + k * .55], fill=(30, 74, 38))
+                elif c in '#90':
+                    d.rectangle([x * k, y * k + 50, x * k + k, y * k + 50 + k], fill=(70, 66, 72))
+                elif c in '678J':
+                    d.rectangle([cx - 2.2 * k, cy - 3.2 * k, cx + 2.2 * k, cy + k * .5], fill=(168, 70, 58) if c != 'J' else (150, 120, 80), outline=(20, 14, 16), width=2)
+                    hn = houses.get((x0 + x, r0 + y))
+                    if hn: labels.append((cx, cy - 1.4 * k, HOUSE_NAMES.get(hn, hn.title())))
+                    elif c == 'J': labels.append((cx, cy - 1.4 * k, 'Molino'))
+                elif c == 'F':
+                    d.ellipse([cx - k * .8, cy - k * .8, cx + k * .8, cy + k * .8], fill=(255, 150, 40), outline=(20, 14, 16))
+                elif c == '$':
+                    d.rectangle([cx - k, cy - k * .7, cx + k, cy + k * .7], fill=(240, 200, 70), outline=(20, 14, 16))
+                elif c == '@':
+                    d.ellipse([cx - k * .6, cy - k * .6, cx + k * .6, cy + k * .6], fill=(120, 170, 230), outline=(20, 14, 16))
+                elif c == 'C':
+                    d.rectangle([cx - k * .45, cy - k * .35, cx + k * .45, cy + k * .35], fill=(200, 150, 60), outline=(20, 14, 16))
+        for (cx, cy, t) in labels: label(d, (cx, cy), t, 15)
+        d.text((12, 25), title, font=font(24), fill=(255, 225, 150), anchor='lm')
+        img.save(os.path.join(OUT, f'plano_{mid}.png'))
+
+
 if __name__ == '__main__':
-    for fn in (title, world_map, underground, classes, directions, enemies):
+    for fn in (title, world_map, underground, classes, directions, enemies, biome_map, enemy_density, town_plans):
         fn(); print('ok', fn.__name__)
